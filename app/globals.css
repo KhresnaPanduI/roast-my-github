@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark-bg: #0F0F1A;
+  --color-charcoal: #1A1A2E;
+  --color-charcoal-light: #252540;
+  --color-flame-orange: #FF6B35;
+  --color-flame-red: #D62828;
+  --color-ember: #F77F00;
+  --color-smoke: #9CA3AF;
+  --color-smoke-light: #D1D5DB;
+
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --animate-flicker: flicker 3s ease-in-out infinite;
+  --animate-fade-in: fadeIn 0.5s ease-out;
+  --animate-pulse-slow: pulse 2s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 107, 53, 0.3), 0 0 30px rgba(214, 40, 40, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 107, 53, 0.5), 0 0 50px rgba(214, 40, 40, 0.25);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+body {
+  background-color: var(--color-dark-bg);
+  color: white;
+}
+
+.fire-gradient {
+  background: linear-gradient(135deg, var(--color-ember), var(--color-flame-orange), var(--color-flame-red));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cursor-blink::after {
+  content: "|";
+  animation: blink 1s step-end infinite;
+  color: var(--color-flame-orange);
+  font-weight: bold;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-charcoal-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-smoke);
+}
