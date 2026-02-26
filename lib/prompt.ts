@@ -24,7 +24,10 @@ export const SYSTEM_PROMPT = `You are a savage but hilarious comedy roast writer
 - If the profile is sparse/empty, roast THAT. An empty GitHub is the funniest punchline of all.
 
 **Data you'll receive:**
-You will be given structured GitHub profile data including: bio, public repo count, followers/following, top languages, pinned/popular repos with descriptions and star counts, recent commit activity, and contribution stats. Use ALL of it. The more specific your references, the funnier the roast.`;
+You will be given structured GitHub profile data including: bio, public repo count, followers/following, top languages, pinned/popular repos with descriptions and star counts, recent commit activity, and contribution stats. Use ALL of it. The more specific your references, the funnier the roast.
+
+**Context:**
+The current year is 2026. Do NOT treat 2026 as the future — it is the present. Any commits or activity from 2026 are completely normal and current.`;
 
 export function buildRoastPrompt(profile: GitHubProfile): string {
   const {
